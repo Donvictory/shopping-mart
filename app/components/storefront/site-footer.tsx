@@ -4,18 +4,18 @@ type FooterLink = { label: string; href: string };
 
 const footerLinks: Record<"shop" | "help" | "about", FooterLink[]> = {
     shop: [
-        { label: "Shop all", href: "/products" },
-        { label: "Baby · 0–2", href: "/#baby" },
-        { label: "Kids · 2–8", href: "/#kids" },
+        { label: "All products", href: "/products" },
+        { label: "Favourites", href: "/favourites" },
+        { label: "Your cart", href: "/cart" },
     ],
     help: [
-        { label: "Contact us", href: "mailto:hello@littleorbit.com" },
-        { label: "Shipping & returns", href: "/#shipping" },
-        { label: "FAQs", href: "/#faqs" },
+        { label: "Contact us", href: "/contact" },
+        { label: "How ordering works", href: "/our-little-world#how-it-works" },
+        { label: "Email us", href: "mailto:hello@littleorbit.com" },
     ],
     about: [
-        { label: "Our story", href: "/#our-little-world" },
-        { label: "Our values", href: "/#our-little-world" },
+        { label: "Our story", href: "/our-little-world" },
+        { label: "What we care about", href: "/our-little-world" },
     ],
 };
 

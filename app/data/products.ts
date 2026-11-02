@@ -21,7 +21,7 @@ export type Product = {
     sizes?: string[];
 };
 
-export const categories = ["Tops", "Bottoms", "Dresses", "Cozy layers", "Baby"] as const;
+export const categories = ["Tops", "Bottoms", "Dresses"] as const;
 
 const KID_SIZES = ["2–3", "4–5", "6–7"];
 const BIG_KID_SIZES = ["4–5", "6–7", "8–9", "10–11"];
@@ -120,7 +120,7 @@ export const products: Product[] = [
         id: "product-4",
         name: "Cloud knit cardigan",
         price: 26000,
-        category: "Cozy layers",
+        category: "Tops",
         ...photoSet("photo-1739660223481-cd22f4219a86"),
         description:
             "A soft, happy cardigan with playful embroidered details. Buttons up for chilly mornings and comes off easily when the sun comes out.",
@@ -153,7 +153,7 @@ export const products: Product[] = [
         id: "product-6",
         name: "Little cloud bodysuit",
         price: 8000,
-        category: "Baby",
+        category: "Tops",
         ...photoSet("photo-1622290291165-d341f1938b8a"),
         description:
             "A gentle everyday bodysuit with easy snaps for quick changes. Soft, stretchy and made for wriggly little ones.",
@@ -254,7 +254,7 @@ export const products: Product[] = [
         id: "product-12",
         name: "Rust knit jumper",
         price: 24000,
-        category: "Cozy layers",
+        category: "Tops",
         ...photoSet("photo-1773747203295-dc002c421c33"),
         description:
             "A warm, hand-finished knit in a rich rust colour. Raglan sleeves give plenty of room to move and grow.",
@@ -271,7 +271,7 @@ export const products: Product[] = [
         id: "product-13",
         name: "Cobalt crew jumper",
         price: 20000,
-        category: "Cozy layers",
+        category: "Tops",
         ...photoSet("photo-1773238582974-9c0aea55e842"),
         description:
             "A bright, classic crew-neck jumper that layers over shirts and polos. Ready for school days and weekends alike.",
@@ -287,7 +287,7 @@ export const products: Product[] = [
         id: "product-14",
         name: "Berry rib cardigan",
         price: 19000,
-        category: "Cozy layers",
+        category: "Tops",
         ...photoSet("photo-1710426657844-19a6b285149f"),
         description:
             "A soft ribbed cardigan in a happy berry pink. Easy buttons make it simple for little hands to do up themselves.",
@@ -303,7 +303,7 @@ export const products: Product[] = [
         id: "product-15",
         name: "Teddy fleece jacket",
         price: 27000,
-        category: "Cozy layers",
+        category: "Tops",
         ...photoSet("photo-1773672826956-f530157406a2"),
         description:
             "A cuddly teddy-fleece jacket for cooler days and harmattan mornings. Warm, light and soft as a hug.",
@@ -320,7 +320,7 @@ export const products: Product[] = [
         id: "product-16",
         name: "Buttercup rain jacket",
         price: 28000,
-        category: "Cozy layers",
+        category: "Tops",
         ...photoSet("photo-1775886904676-89aab7e33e13"),
         description:
             "A cheerful yellow jacket that keeps the drizzle off on rainy-season walks. Easy to spot, easy to zip.",

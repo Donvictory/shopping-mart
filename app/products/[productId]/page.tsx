@@ -1,8 +1,6 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { products } from "../../data/products";
-
-import AnnouncementBar from "../../components/storefront/announcement-bar";
 import SiteHeader from "../../components/storefront/site-header";
 import SiteFooter from "../../components/storefront/site-footer";
 import ProductDetails from "../../components/storefront/product-details";
@@ -20,14 +18,9 @@ export function generateStaticParams() {
         productId: product.id,
     }));
 }
-
-// The header, footer and announcement bar form a static shell that renders
-// instantly on navigation. Only the part that reads URL data (params) sits
-// behind Suspense, as required by Cache Components / instant navigation.
 export default function ProductPage({ params }: ProductPageProps) {
     return (
         <>
-            <AnnouncementBar />
             <SiteHeader />
 
             <main>
@@ -54,7 +47,7 @@ async function ProductContent({ params }: ProductPageProps) {
 
     return (
         <>
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-b border-border px-6 py-5 md:px-16">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-b border-border px-6 py-2 md:px-16">
                 <BackButton fallbackHref="/products" />
                 <p className="text-sm text-brown/60">
                     Shop all / {product.category} / {product.name}

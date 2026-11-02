@@ -80,10 +80,10 @@ export default function ProductDetails({
 
     return (
         <section className="bg-cream px-6 py-12 md:px-16">
-            <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+            <div className="grid gap-12 min-[700px]:grid-cols-[1.15fr_0.85fr] min-[700px]:gap-10 lg:gap-16">
                 <div>
                     <div className="relative overflow-hidden rounded-2xl bg-soft-green">
-                        <div className="h-[460px] md:h-[540px] lg:h-[626px]">
+                        <div className="h-[460px] min-[700px]:h-[480px] md:h-[540px] lg:h-[626px]">
                             <img
                                 src={selectedImage}
                                 alt={product.name}
@@ -140,7 +140,7 @@ export default function ProductDetails({
                         The everyday edit / {product.ageRange ?? "Made for little adventures"}
                     </p>
 
-                    <h1 className="mt-5 font-display text-5xl font-medium leading-tight text-brown">
+                    <h1 className="mt-5 font-display text-4xl font-medium leading-tight text-brown lg:text-5xl">
                         {product.name}
                     </h1>
 

@@ -8,8 +8,8 @@ export default function ProductDetailsSkeleton() {
             </div>
 
             <section className="bg-cream px-6 py-12 md:px-16">
-                <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-                    <div className="h-[460px] animate-pulse rounded-2xl bg-soft-green md:h-[540px] lg:h-[626px]" />
+                <div className="grid gap-12 min-[700px]:grid-cols-[1.15fr_0.85fr] min-[700px]:gap-10 lg:gap-16">
+                    <div className="h-[460px] animate-pulse rounded-2xl bg-soft-green min-[700px]:h-[480px] md:h-[540px] lg:h-[626px]" />
 
                     <div className="space-y-5">
                         <div className="h-4 w-48 animate-pulse rounded bg-border" />

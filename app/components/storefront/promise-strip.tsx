@@ -6,7 +6,7 @@ const promises = [
 
 export default function PromiseStrip() {
     return (
-        <section className="grid grid-cols-1 border-b border-border bg-cream px-6 py-8 sm:grid-cols-3 md:px-16">
+        <section className="hidden grid grid-cols-1 border-b border-border bg-cream px-6 py-8 sm:grid-cols-3 md:px-16">
             {promises.map((promise, index) => (
                 <div
                     key={promise}

@@ -334,14 +334,10 @@ export default function CartView() {
     const hasItems = isLoaded && lines.length > 0;
 
     return (
-        <section className="bg-cream px-6 py-12 md:px-16" aria-labelledby="cart-heading">
-            {/* Heading row */}
+        <section className="bg-cream px-6 py-8 md:px-16" aria-labelledby="cart-heading">
             <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
-                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-terracotta">
-                        Good things, all together
-                    </p>
-                    <div className="mt-4 flex flex-wrap items-center gap-4">
+                    <div className="mt-3 flex flex-wrap items-center gap-4">
                         <h1 id="cart-heading" className="font-display text-4xl font-medium text-brown md:text-5xl">
                             Your cart
                         </h1>

@@ -2,7 +2,7 @@ export default function HeroSection() {
     return (
         <section className="grid min-h-[400px] grid-cols-1 lg:grid-cols-2">
 
-            <div className="flex flex-col items-start justify-center bg-[#786E63] px-6 py-16 md:px-16 lg:py-20">
+            <div className="flex flex-col items-start justify-center bg-pale-yellow px-6 py-16 md:px-16 lg:py-20">
                 <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-terracotta">
                     Made for little adventures
                 </p>

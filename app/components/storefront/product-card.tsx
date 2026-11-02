@@ -18,7 +18,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     return (
         // The favourite button sits beside the link (not inside it), since a
         // button nested in a link is invalid HTML and would trigger navigation.
-        <article className="group relative h-full rounded-xl border border-border bg-white/40 p-3 transition-colors hover:border-brown/40 md:p-4">
+        <article className="group relative h-full rounded-xl border border-border bg-white/40 p-2 transition-colors hover:border-brown/40 sm:p-3 md:p-4">
             {/* prefetch resolves this product's URL data ahead of the click, so the
                 details page opens without showing its loading skeleton. */}
             <Link href={`/products/${id}`} prefetch className="block">
@@ -43,16 +43,16 @@ export default function ProductCard({ product }: ProductCardProps) {
                     )}
                 </div>
 
-                <div className="mt-4 px-1 pb-1">
-                    <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-base font-semibold text-brown">{name}</h3>
-                        <p className="shrink-0 text-base text-brown">{formatNaira(price)}</p>
+                <div className="mt-3 px-1 pb-1 md:mt-4">
+                    <div className="flex flex-col gap-0.5 md:flex-row md:items-start md:justify-between md:gap-3">
+                        <h3 className="text-sm font-semibold leading-snug text-brown md:text-base">{name}</h3>
+                        <p className="shrink-0 text-sm text-brown md:text-base">{formatNaira(price)}</p>
                     </div>
 
-                    {subtitle && <p className="mt-1 text-sm text-brown/60">{subtitle}</p>}
+                    {subtitle && <p className="mt-1 text-xs leading-snug text-brown/60 md:text-sm">{subtitle}</p>}
 
                     {colors.length > 0 && (
-                        <ul className="mt-2.5 flex gap-1.5" aria-label={`Colours: ${colors.map((color) => color.name).join(", ")}`}>
+                        <ul className="mt-2 flex gap-1.5 md:mt-2.5" aria-label={`Colours: ${colors.map((color) => color.name).join(", ")}`}>
                             {colors.map((color) => (
                                 <li
                                     key={color.name}
@@ -65,11 +65,11 @@ export default function ProductCard({ product }: ProductCardProps) {
                 </div>
             </Link>
 
-            {/* Top-right of the image: card padding (12px / 16px) + 10px inset. */}
+            {/* Top-right of the image: card padding (8 / 12 / 16px) + a small inset. */}
             <FavouriteButton
                 productId={id}
                 productName={name}
-                className="absolute right-[22px] top-[22px] md:right-[26px] md:top-[26px]"
+                className="absolute right-3.5 top-3.5 sm:right-[20px] sm:top-[20px] md:right-[26px] md:top-[26px]"
             />
         </article>
     );

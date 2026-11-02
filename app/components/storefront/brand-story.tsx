@@ -1,4 +1,7 @@
-function FlowerIcon() {
+import Link from "next/link";
+import { ArrowUpRightIcon } from "../icons";
+
+export function FlowerIcon() {
     return (
         <svg
             aria-hidden="true"
@@ -11,13 +14,11 @@ function FlowerIcon() {
             strokeLinecap="round"
             strokeLinejoin="round"
         >
-            {/* petals */}
             <circle cx="32" cy="12" r="9" />
             <circle cx="32" cy="40" r="9" />
             <circle cx="18" cy="26" r="9" />
             <circle cx="46" cy="26" r="9" />
             <circle cx="32" cy="26" r="5" />
-            {/* stem and leaves */}
             <path d="M32 49v32" />
             <path d="M32 74c-4-9-14-12-24-10 3 9 12 13 24 10Z" />
             <path d="M32 74c4-9 14-12 24-10-3 9-12 13-24 10Z" />
@@ -46,10 +47,18 @@ export default function BrandStory() {
                     </h2>
                     <p className="mt-4 text-base leading-7 text-brown/80">
                         We make the clothes. They make the memories. Thoughtful details, gentle
-                        fabrics, and room to grow — because the best outfits are the ones they
+                        fabrics, and room to grow because the best outfits are the ones they
                         forget they&apos;re wearing.
                     </p>
                 </div>
+
+                <Link
+                    href="/our-little-world"
+                    className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-terracotta transition-colors hover:text-brown md:ml-auto"
+                >
+                    Meet Little Orbit
+                    <ArrowUpRightIcon size={16} />
+                </Link>
             </div>
         </section>
     );

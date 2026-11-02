@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { products } from "../../data/products";
 import { HeartIcon } from "../icons";
-import ProductRail from "./product-rail";
+import ProductGrid from "./product-grid";
 import { useFavourites } from "./use-favourites";
 
 export default function FavouritesView() {
@@ -56,10 +56,9 @@ export default function FavouritesView() {
             ) : (
                 <>
                     <p className="mt-3 text-sm text-brown/60">
-                        Saved on this device. Tap a heart again to remove it.
+                        Tap a heart again to remove it.
                     </p>
-                    {/* Keyed on the count so removing one resets the swipe position. */}
-                    <ProductRail key={count} products={favourites} />
+                    <ProductGrid products={favourites} />
                 </>
             )}
         </section>

@@ -106,3 +106,55 @@ export function validateCheckout(
         ? { success: true, data: result.data }
         : { success: false, errors: fieldErrors<keyof CheckoutInput>(result.error) };
 }
+
+/* ---------- contact form ---------- */
+
+export const CONTACT_TOPICS = [
+    "A question about an order",
+    "Help with sizing",
+    "Product question",
+    "Something else",
+] as const;
+
+export const CONTACT_MESSAGE_MAX_LENGTH = 1000;
+
+export const contactSchema = z.object({
+    name: customerSchema.shape.name,
+    // Optional: only checked when the customer fills it in.
+    phone: singleLine().refine((value) => value === "" || isValidPhone(value), {
+        error: "Please enter a valid phone number, or leave it empty.",
+    }),
+    topic: z.enum(CONTACT_TOPICS, { error: "Please choose what it's about." }),
+    message: z
+        .string()
+        .overwrite((value) => value.replace(/\r\n?/g, "\n").replace(/\n{3,}/g, "\n\n").trim())
+        .min(10, { error: "Please write a short message (10+ characters)." })
+        .max(CONTACT_MESSAGE_MAX_LENGTH, {
+            error: `Please keep your message under ${CONTACT_MESSAGE_MAX_LENGTH} characters.`,
+        }),
+});
+
+export type ContactInput = { name: string; phone: string; topic: string; message: string };
+export type ContactErrors = Partial<Record<keyof ContactInput, string>>;
+
+export function validateContact(
+    input: ContactInput
+): ValidationResult<z.infer<typeof contactSchema>, ContactErrors> {
+    const result = contactSchema.safeParse(input);
+    return result.success
+        ? { success: true, data: result.data }
+        : { success: false, errors: fieldErrors<keyof ContactInput>(result.error) };
+}
+
+/** WhatsApp text for a contact enquiry (input must come from validateContact). */
+export function buildContactMessage(contact: z.infer<typeof contactSchema>): string {
+    return [
+        "Hello Little Orbit!",
+        "",
+        `*${contact.topic}*`,
+        contact.message,
+        "",
+        `From: ${contact.name}`,
+        ...(contact.phone ? [`Phone: ${contact.phone}`] : []),
+    ].join("\n");
+}
