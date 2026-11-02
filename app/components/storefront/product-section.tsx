@@ -6,10 +6,13 @@ import { ArrowRightIcon, CloseIcon, SearchIcon } from "../icons";
 import Pagination from "./pagination";
 import ProductGrid from "./product-grid";
 import ProductScroller from "./product-scroller";
+import { useMediaQuery } from "./use-media-query";
 import { useRef, useState } from "react";
 
 const ALL_CATEGORIES = "All the good stuff";
-const PRODUCTS_PER_PAGE = 10;
+// Products page: 10 per page on phones (1–2 columns), 12 from 600px (3–4 columns, full rows).
+const PER_PAGE_MOBILE = 10;
+const PER_PAGE_DEFAULT = 12;
 
 const productCategories = [ALL_CATEGORIES, ...categories];
 
@@ -24,6 +27,8 @@ export default function ProductSection({ limit, isPageHeading = false }: Product
     const [activeCategory, setActiveCategory] = useState(ALL_CATEGORIES);
     const [query, setQuery] = useState("");
     const [page, setPage] = useState(1);
+    const isMobile = useMediaQuery("(max-width: 599px)");
+    const perPage = isMobile ? PER_PAGE_MOBILE : PER_PAGE_DEFAULT;
     const resultsRef = useRef<HTMLDivElement>(null);
     const showSearch = isPageHeading;
     const hasQuery = showSearch && query.trim().length > 0;
@@ -56,12 +61,12 @@ export default function ProductSection({ limit, isPageHeading = false }: Product
     const filteredProducts = hasQuery ? searchProducts(query, inCategory) : inCategory;
     const visibleProducts = limit ? filteredProducts.slice(0, limit) : filteredProducts;
 
-    const totalPages = Math.max(1, Math.ceil(visibleProducts.length / PRODUCTS_PER_PAGE));
+    const totalPages = Math.max(1, Math.ceil(visibleProducts.length / perPage));
     const currentPage = Math.min(page, totalPages);
-    const firstIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
+    const firstIndex = (currentPage - 1) * perPage;
     const pageProducts = isHome
         ? visibleProducts
-        : visibleProducts.slice(firstIndex, firstIndex + PRODUCTS_PER_PAGE);
+        : visibleProducts.slice(firstIndex, firstIndex + perPage);
 
     const Heading = isPageHeading ? "h1" : "h2";
 
@@ -71,7 +76,7 @@ export default function ProductSection({ limit, isPageHeading = false }: Product
                 <form
                     role="search"
                     onSubmit={(event) => event.preventDefault()}
-                    className="mb-10"
+                    className="mb-10 w-full lg:w-1/2"
                 >
                     <label htmlFor="product-search" className="sr-only">
                         Search products
